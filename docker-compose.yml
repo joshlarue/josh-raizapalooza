@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  raizapalooza:
+#    image: node:20-alpine
+    build: .
+    volumes:
+      - .:/app
+      - /app/.next
+      - /app/node_modules
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - raizapalooza

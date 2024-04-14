@@ -1,0 +1,31 @@
+@keyframes sparkle {
+  0% {
+    color: var(--accent2);
+  }
+  25% {
+    color: var(--accent);
+  }
+  50% {
+    color: var(--text);
+  }
+  75% {
+    color: var(--accent);
+  }
+  100% {
+    color: var(--accent2);
+  }
+}
+
+#date-text {
+  animation: sparkle 7s infinite;
+  z-index: 50;
+}
+#location-text a {
+  text-decoration: underline;
+}
+#location-text a:hover {
+  text-decoration: none;
+}
+#eighteen-only {
+  font-weight: bolder;
+}

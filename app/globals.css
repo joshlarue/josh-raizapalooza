@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/*:root {*/
+/*  --foreground-rgb: 0, 0, 0;*/
+/*  --background-start-rgb: 214, 219, 220;*/
+/*  --background-end-rgb: 255, 255, 255;*/
+/*}*/
+
+/*@media (prefers-color-scheme: dark) {*/
+/*  :root {*/
+/*    color: #fffdcf;*/
+/*    background: #121212;*/
+/*  }*/
+/*}*/
+
+/*
+These variables contain the designer's color scheme. Use these instead of hardcoding colors in the CSS.
+*/
+:root {
+  --base: #121212;
+  --light: #fffdcf;
+  --accent: #4041d1;
+  --accent2: #00fd83;
+}
+
+@font-face {
+  font-family: "Tan-Headline";
+  src: url("../public/fonts/TAN - HEADLINE.ttf");
+}
+::selection {
+  background-color: var(--light);
+  color: var(--base);
+}
+body {
+  color: var(--light);
+  background: var(--base);
+}
+input,
+select {
+  background-color: var(--base);
+  font-size: 18px;
+  border: solid 1px var(--light);
+  outline-color: var(--light);
+  border-radius: 4px;
+}
+input:hover,
+select:hover,
+input:focus,
+select:focus {
+  outline: #fffdcf solid 4px;
+}
+select {
+  background-color: var(--base);
+  font-size: 18px;
+  border: solid 1px var(--light);
+  outline-color: var(--light);
+  border-radius: 2px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted],
+select[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+h2 {
+  font-family: "Antonio", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 50px;
+  font-weight: normal;
+  font-style: normal;
+  color: #fffdcf;
+}
+h3,
+p,
+span,
+div {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  color: #fffdcf;
+  font-size: 18px;
+}
+a {
+  color: var(--accent);
+  /*font-size: 18px;*/
+  cursor: pointer;
+}
+
+.lds-ellipsis {
+  margin: auto;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #4cddff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.parallax {
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  width: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+.parallax::-webkit-scrollbar {
+  display: none;
+}
+
+.parallax__group {
+  position: relative;
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax__group {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.parallax__layer--fore {
+  -webkit-transform: translateZ(-90px) scale(0.7);
+  transform: translateZ(-90px) scale(0.7);
+  z-index: -1;
+}
+
+.parallax__layer--base {
+  /*background-image: url('/background.png');*/
+
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: -4;
+}
+
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: -3;
+}
+
+.parallax__layer--deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) scale(3);
+  z-index: -2;
+}
+.parallax__layer--deepest {
+  -webkit-transform: translateZ(-5000px) scale(3);
+  transform: translateZ(-5000px) scale(6);
+  z-index: -4;
+}
+
+.dark-overlay {
+  position: absolute;
+  background: radial-gradient(
+    60% 60% at 50% 50%,
+    #121212 30.22%,
+    rgba(217, 217, 217, 0) 100%
+  );
+}
+
+/* --base: #121212;
+  --light: #fffdcf;
+  --accent: #4041d1;
+  --accent2: #00fd83; */
+
+/* STYLING FOR WHOZA SCROLLBARS*/
+
+#whozapalooza::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#whozapalooza::-webkit-scrollbar-track {
+  background: #fffdcf;
+  border: #121212 1px solid;
+  box-shadow: inset 0 0 5px #00fd83;
+  border-radius: 10px;
+}
+
+/* Handle */
+#whozapalooza::-webkit-scrollbar-thumb {
+  border: #121212 1px solid;
+  background: #4041d1;
+  border-radius: 10px;
+}
+
+.info-bg {
+  background-image: radial-gradient(circle, #121212 22%, transparent 50%);
+  z-index: 0;
+}
